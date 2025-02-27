@@ -1,0 +1,44 @@
+ffmpeg -framerate 5 -i '../Watermasses/SASTMW/26.6_&_26.5/Temperature_layer_frame_%4d.png' first_draft.gif
+
+
+
+
+ffmpeg -framerate 5 -i '/Users/tarjaluna/UHM_Ocean_BGC_Group Dropbox/UHMBGC Lab/Luna/Watermasses/SASTMW/26.6_&_26.5/pH_layer_frame_%4d.png' pH_draft.gif
+
+
+
+
+
+ffmpeg -framerate 5 -i '/Users/tarjaluna/UHM_Ocean_BGC_Group Dropbox/UHMBGC Lab/Luna/Watermasses/NPSTMW/25.4_&_25.3_frames/Salinity_layer_frame_%4d.png' NPSTMW_Salinity_draft.gif
+
+
+
+ffmpeg -framerate 5 -i '/Users/tarjaluna/UHM_Ocean_BGC_Group Dropbox/UHMBGC Lab/Luna/Watermasses/NPSTMW/25.4_&_25.3_frames/Salinity_layer_frame_%4d.png' -vf -y NPSTMW_Salinity_draft.gif
+
+
+
+#for color pallet issue 
+
+ffmpeg -i '/Users/tarjaluna/UHM_Ocean_BGC_Group Dropbox/UHMBGC Lab/Luna/Watermasses/PacAAIW/frames/Salinity_layer_frame_%4d.png' -vf "palettegen" palette.png
+
+then
+
+ffmpeg -framerate 5 -i '/Users/tarjaluna/UHM_Ocean_BGC_Group Dropbox/UHMBGC Lab/Luna/Watermasses/PacAAIW/frames/pH_layer_frame_%04d.png' -i palette.png -lavfi "paletteuse" 2.0_Pac_Salinity.gif
+
+
+
+#framerate is frames per second (gen range 5-15)
+
+
+
+
+
+ffmpeg -i '/Users/tarjaluna/UHM_Ocean_BGC_Group Dropbox/UHMBGC Lab/Luna/Watermasses/NASTMW/frames/alk_layer_frame_%4d.png' -vf "palettegen" palette.png
+
+
+ffmpeg -framerate 15 -i '/Users/tarjaluna/UHM_Ocean_BGC_Group Dropbox/UHMBGC Lab/Luna/Watermasses/NASTMW/frames/alk_layer_frame_%04d.png' -i palette.png -lavfi "paletteuse" 10_NASPMW_alk.gif
+
+
+
+
+
